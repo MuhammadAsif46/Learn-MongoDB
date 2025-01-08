@@ -1,0 +1,20 @@
+
+{
+    "maker": "Tata",
+    "model": "Nexon",
+    "fuel_type": "Petrol",
+    "transmission": "Automatic",
+    "engine": {
+        "type": "Turbocharged",
+        "cc": 1199,
+        "torque": "170 Nm"
+    },
+    "features": [
+        "Touchscreen",
+        "Reverse Camera",
+        "Bluetooth Connectivity"
+    ],
+    "sunroof": false,
+    "airbags": 2
+}
+

@@ -67,3 +67,7 @@ db.collection_name.updateOne(
 To delete data from a collection:
 ```javascript
 db.collection_name.deleteOne({ filter_criteria })
+
+
+
+
