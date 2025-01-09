@@ -92,6 +92,19 @@ db.cars.insertMany([
   },
 ]);
 
+
+- find(); // all data find
+
+db.cars.find();
+db.testing.find({},{model:1}); // 1 means true || get only mode
+db.testing.find({},{model:1,_id:0}); // 0 means false || dispatch _id
+db.testing.find({},{model:1,maker:1,_id:0}); // 0 means false || dispatch _id
+
+db.cars.findOne();
+db.testing.findOne({fuel_type:"Diesel"}); //filter query by key
+db.testing.findOne({features:"Sunroof"}); //filter query by array
+db.testing.findOne({"engine.type":"turbocharged"}); //filter query by object
+
 // CARS data example JSON:
 // maker
 // model
