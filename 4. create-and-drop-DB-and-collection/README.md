@@ -40,34 +40,6 @@ To drop a collection:
 collection_name.drop()
 ```
 
-## CRUD Operations
-
-### Create - Inserting Data
-To insert data into a collection:
-```javascript
-db.collection_name.insertOne({ key: "value" })
-```
-
-### Read - Querying Data
-To retrieve data from a collection:
-```javascript
-db.collection_name.find()
-```
-
-### Update - Modifying Data
-To update existing data in a collection:
-```javascript
-db.collection_name.updateOne(
-  { filter_criteria },
-  { $set: { key: "new_value" } }
-)
-```
-
-### Delete - Removing Data
-To delete data from a collection:
-```javascript
-db.collection_name.deleteOne({ filter_criteria })
-
 
 
 
