@@ -109,21 +109,47 @@ db.cars.find({
 ```
 
 - **$type**
-    Here we can filter the content based on BASON
-    type like string, bool etc
-    This can be useful to find field with null values
-``` javascript
-    {name:{$type:"string"}}
+  Here we can filter the content based on BASON
+  type like string, bool etc
+  This can be useful to find field with null values
+
+```javascript
+{
+  name: {
+    $type: "string";
+  }
+}
 ```
 
 - **$exists:**
+
 ```javascript
-db.cars.find({fuel_Type:{$exists: true}});
+db.cars.find({ fuel_Type: { $exists: true } });
 ```
 
 - **$type:**
+
 ```javascript
-db.cars.find({fuel_Type:{$type:"string"}});
+db.cars.find({ fuel_Type: { $type: "string" } });
 ```
 
 ---
+
+## Array Operators
+
+- **$size:**
+  Return all documents that match specified array size
+
+```javascript
+db.collection.find({ hobbies: { $size: 4 } });
+db.cars.find({ features: { $size: 5 } });
+```
+
+- **$all**
+  Return all documents that match the pattern
+  (all user with hobbies of play and read)
+
+```javascript
+db.collection.find({ hobbies: { $all: ["play", "read"] } });
+db.cars.find({ features: { $all: ["sunroof", "bluetooth"] } });
+```
