@@ -38,7 +38,11 @@ db.orders.aggregate([
 - **$count**
 - **$skip**
 
-### Example of Grouping
+### Group
+
+Groups input documents by a specified identifier (\_id) and applies aggregation expressions like $sum, $avg, $min, $max, etc., to the grouped data.
+
+Example:
 
 #### Use Case: Number of Cars of Each Brand (Maker)
 
@@ -65,7 +69,7 @@ db.cars.aggregate([
 ]
 ```
 
-###Syntax of ‘group’
+### Syntax of ‘group’
 
 ```javascript
 db.collection.aggregate([
@@ -95,11 +99,13 @@ db.cars.aggregate([{ $group: { _id: "$maker" } }]);
 
 ```JavaScript
 db.cars.aggregate([
-        { $group:
-                       { _id: "$maker",
-                          TotalCars: { $sum: 1 }
-                        }
-                   }] )
+    {
+        $group: {
+            _id: "$maker",
+            TotalCars: { $sum: 1 }
+        },
+    },
+]);
 ```
 
 The $sum: 1 operation counts the number of documents in each group
@@ -113,8 +119,57 @@ db.cars.aggregate([
   {
     $group: {
       _id: "$fuel_type",
-
       TotalCars: { $sum: 1 },
+    },
+  },
+]);
+```
+
+## MATCH
+
+Filters documents to pass only those that match the specified condition(s) to the next stage.
+
+Example:
+
+- Hyundai cars having engine of more than 1200cc
+
+```JavaScript
+db.cars.aggregate([
+    {
+        $match: {
+            maker:"Hyundai",
+            "engine.cc":{$gt:1000}
+        }
+    },
+]);
+```
+
+---
+
+## COUNT
+
+Counts the number of documents passing through the pipeline and outputs the count.
+
+Example:
+
+- Print Total no. of Hyundai cars
+
+```JavaScript
+db.cars.aggregate([
+    { $match: {maker:"Hyundai"} },
+    { $count: "Total_cars"},
+]);
+```
+
+- Count no. of diesel and petrol cars of Hyundai brand
+
+```javascript
+db.cars.aggregate([
+  { $match: { maker: "Hyundai" } },
+  {
+    $group: {
+      _id: "$fuel_type",
+      Totalcars: { $sum: 1 },
     },
   },
 ]);
