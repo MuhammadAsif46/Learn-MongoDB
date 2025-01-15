@@ -174,3 +174,29 @@ db.cars.aggregate([
   },
 ]);
 ```
+
+## Project
+
+Find all the Hyundai cars and only show Maker, Model and
+Fuel_type details
+
+```javascript
+db.cars.aggregate([
+  { $match: { maker: "Hyundai" } },
+  { $project: { maker: 1, model: 1, fuel_type: 1, _id: 0 } },
+]);
+```
+
+## SORT
+
+For the previous output, sort the data based on Model
+
+```javascript
+db.cars.aggregate([
+  { $match: { maker: "Hyundai" } },
+  { $project: { maker: 1, model: 1, fuel_type: 1, _id: 0 } },
+  { $sort: { model: 1 } },
+]);
+```
+
+
