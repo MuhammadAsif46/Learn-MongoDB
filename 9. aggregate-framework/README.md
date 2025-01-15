@@ -175,10 +175,16 @@ db.cars.aggregate([
 ]);
 ```
 
-## Project
+---
 
-Find all the Hyundai cars and only show Maker, Model and
-Fuel_type details
+## $project
+
+**Description**:  
+`$project` is used to include or exclude specific fields in the output. It reshapes the document by specifying the fields you want to see.
+
+### Example:
+
+Show only `maker`, `model`, and `fuel_type` for Hyundai cars.
 
 ```javascript
 db.cars.aggregate([
@@ -187,9 +193,16 @@ db.cars.aggregate([
 ]);
 ```
 
-## SORT
+---
 
-For the previous output, sort the data based on Model
+## $sort
+
+**Description**:  
+`$sort` is used to arrange documents in ascending (`1`) or descending (`-1`) order based on a field.
+
+### Example:
+
+Sort Hyundai cars based on the `model` field.
 
 ```javascript
 db.cars.aggregate([
@@ -199,4 +212,32 @@ db.cars.aggregate([
 ]);
 ```
 
+---
 
+## $sortByCount
+
+**Description**:  
+`$sortByCount` groups documents by a specified field and then sorts the output by the count of documents in each group. It combines `$group` and `$sort` functionality.
+
+### Example:
+
+Group cars by their `maker` and sort the makers based on the number of cars they have.
+
+```javascript
+db.cars.aggregate([{ $sortByCount: "$maker" }]);
+```
+
+---
+
+## $unwind
+
+**Description**:  
+`$unwind` deconstructs an array field in a document into multiple documents, each containing one element from the array. It is useful for working on individual array elements.
+
+### Example:
+
+If each car has multiple `owners`, `$unwind` creates a separate document for each owner.
+
+```javascript
+db.cars.aggregate([{ $unwind: "$owners" }]);
+```
