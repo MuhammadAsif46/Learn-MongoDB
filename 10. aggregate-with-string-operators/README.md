@@ -41,7 +41,7 @@ The `$toUpper` and `$toLower` operators convert strings to uppercase and lowerca
 The `$regexMatch` operator performs a regular expression (regex) pattern matching and returns `true` or `false` based on the match.
 
 #### Syntax:
-```json
+```javascript
 {
   $regexMatch: {
     input: <string_expression>,
