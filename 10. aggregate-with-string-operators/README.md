@@ -86,3 +86,5 @@ db.cars.aggregate([
   { $out: "hyundai_cars" },
 ]);
 ```
+
+- Document: https://www.mongodb.com/docs/manual/reference/operator/aggregation/#string-expression-operators
