@@ -90,3 +90,7 @@ db.cars.aggregate([
 - **Readability:** Makes pipelines easier to understand by reducing repetition.
 - **Efficiency:** Avoids recalculating the same value multiple times.
 - **Flexibility:** Allows conditional logic and intermediate computations.
+
+---
+
+- Document: https://www.mongodb.com/docs/manual/reference/aggregation-variables/#system-variables
