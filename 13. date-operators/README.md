@@ -200,3 +200,5 @@ db.collection.aggregate([
 ---
 
 These date operators enable powerful date manipulations and calculations in MongoDB, making it easier to work with time-based data.
+
+- Document: https://www.mongodb.com/docs/manual/reference/operator/aggregation/#date-expression-operators
