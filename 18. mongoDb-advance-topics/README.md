@@ -92,12 +92,10 @@ rs.status();
 
 Sharding is a method of distributing data across multiple servers (shards) to enable horizontal scaling. It allows MongoDB to handle large datasets and high-throughput operations efficiently.
 
-Key Components:
+**Key Components**:
 
 - **Shard**: A subset of the data.
-
-- ** Config Server**: Stores metadata and configuration information.
-
+- **Config Server**: Stores metadata and configuration information.
 - **Query Router (mongos)**: Routes client queries to the appropriate shards.
 
 **Sharding Strategy**:
@@ -105,7 +103,6 @@ Key Components:
 MongoDB uses a shard key to determine how data is distributed across shards. The shard key can be:
 
 - **Hashed**: Distributes data evenly but loses range query efficiency.
-
 - **Ranged**: Supports range queries but may lead to uneven data distribution.
 
 Example: Enabling Sharding
@@ -131,9 +128,7 @@ sh.status();
 **Benefits**:
 
 - **Scalability**: Handles large datasets by distributing them across multiple servers.
-
 - **High Throughput**: Allows parallel query execution.
-
 - **Fault Tolerance**: Ensures data availability even if some shards fail.
 
 **Best Practices**:
