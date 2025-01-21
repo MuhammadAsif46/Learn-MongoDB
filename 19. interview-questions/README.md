@@ -93,3 +93,64 @@ document in a MongoDB collection. It is mandatory and
 cannot be removed. However, it can be modified if
 necessary, though this is not recommended as it may lead to
 data inconsistency.
+
+---
+
+- What is the difference between insert() and insertMany() operations in MongoDB?
+
+**Answer**: insert() is used to insert a single document into a
+collection, while insertMany() allows for the insertion of
+multiple documents in a single operation. insertMany() is
+more efficient for bulk inserts.
+
+---
+
+- Explain how MongoDB's aggregation framework works. What are some common stages used in an aggregation pipeline?
+
+**Answer**: The aggregation framework in MongoDB allows for
+processing data in a pipeline, where each stage transforms the data.
+Common stages include:
+
+- $match: Filters documents based on a condition.
+- $group: Groups documents by a specified key and performs aggregation operations.
+- $sort: Sorts documents.
+- $project: Reshapes the documents by including/excluding fields.
+- $lookup: Performs a left join with another collection.
+
+---
+
+- How does MongoDB handle transactions, and what is the significance of multi-document transactions?
+
+**Answer**: MongoDB supports multi-document transactions,
+which allow for ACID-compliant operations across multiple
+documents or collections. This ensures that either all
+operations within a transaction are applied, or none are,
+providing consistency and reliability in complex operations.
+
+---
+
+- What are the pros and cons of embedding documents versus using references in MongoDB?
+
+Embedding (Pros):
+- Better performance for read operations.
+- Simpler queries.
+
+Embedding (Cons):
+- Can lead to large documents and duplication of data.
+
+References (Pros):
+- More normalized data structure.
+- Reduces duplication.
+
+References (Cons):
+- Requires additional queries (joins) which can be slower.
+
+---
+
+- What is the difference between updateOne(), updateMany(), and replaceOne() in MongoDB?
+
+**Answer**:
+
+- updateOne(): Updates the first document that matches the query criteria.
+- updateMany(): Updates all documents that match the query criteria.
+- replaceOne(): Replaces the entire document with a new one, based on the query criteria.
