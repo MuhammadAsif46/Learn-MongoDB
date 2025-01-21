@@ -154,3 +154,113 @@ References (Cons):
 - updateOne(): Updates the first document that matches the query criteria.
 - updateMany(): Updates all documents that match the query criteria.
 - replaceOne(): Replaces the entire document with a new one, based on the query criteria.
+
+---
+
+- How does MongoDB handle concurrency and ensure data consistency?
+
+**Answer**: MongoDB handles concurrency using a combination of locks
+(e.g., collection-level locks) and journaling. It uses the WiredTiger
+storage engine, which provides document-level locking, allowing for
+higher concurrency. Consistency is maintained through replica sets
+and transactions.
+
+---
+
+- What are the different types of data modeling strategies in MongoDB?
+
+**Answer**: Common data modeling strategies include:
+
+- Embedding documents for data that is frequently accessed together.
+- Referencing documents to normalize data and avoidduplication.
+- Hybrid models that combine embedding and referencing for different use cases.
+
+---
+
+- Explain the concept of TTL (Time to Live) indexes in MongoDB and when they might be useful.
+
+**Answer**: TTL indexes automatically delete documents from a
+collection after a specified period. This is useful for data that
+becomes irrelevant after a certain time, such as session logs,
+temporary data, or caching.
+
+---
+
+- How would you optimize a MongoDB query for better performance?
+
+**Answer**: To optimize a MongoDB query:
+
+- Use indexes effectively.
+- Avoid full collection scans by using selective queries.
+- Limit the amount of data returned by using projections.
+- Use the explain() method to analyze query performance.
+- Consider denormalization to reduce the number of joins.
+
+---
+
+- Explain how to perform a backup and restore operation in a MongoDB
+database.
+
+**Answer**:
+
+**Backup**: Use mongodump to create a binary backup of the database.
+**Restore**: Use mongorestore to restore the data from a backup.
+Additionally, for cloud deployments, MongoDB Atlas provides
+automated backups.
+
+---
+
+
+- Describe the process of migrating data from a relational database to MongoDB. What challenges might you face?
+
+**Answer**: The migration process involves:
+
+- Analyzing the relational schema.
+- Designing a MongoDB schema, often using denormalization and embedding.
+- Exporting data from the relational database (e.g., using SQL queries).
+- Importing data into MongoDB (e.g., using mongoimport or custom scripts).
+- Challenges: Schema design differences, handling joins, data type conversion, and ensuring data consistency during migration.
+
+---
+
+- What are MongoDB's limitations, and how can you work around them?
+
+**Answer**: Limitations include:
+
+- No built-in support for joins (use aggregation or manual joins).
+- Limited support for multi-document ACID transactions (introduced in later versions).
+- Large documents can impact performance (use references to mitigate).
+- Working around limitations often involves thoughtful schema design,
+indexing, and understanding MongoDB's strengths.
+
+---
+
+- How does MongoDB Atlas differ from running MongoDB on-premises?
+
+**Answer**: MongoDB Atlas is a fully managed cloud database service that
+automates deployment, scaling, and backups. It offers built-in security
+features and integration with other cloud services. Running MongoDB
+on-premises requires manual management of hardware, scaling,
+backups, and security.
+
+---
+
+- Explain the role of journaling in MongoDB. How does it help in ensuring
+durability?
+
+**Answer**: Journaling in MongoDB is a mechanism that logs write
+operations to a journal file before applying them to the database. In
+case of a crash, MongoDB can use the journal to recover to a consistent
+state, ensuring durability of write operations.
+
+---
+
+
+- How would you handle schema versioning in a MongoDB
+application?
+
+**Answer**: Schema versioning can be handled by:
+- Embedding a version field in each document.
+- Using a migration script to update existing documents to the new schema version.
+- Designing the application to handle multiple schema versions
+during the transition period.
